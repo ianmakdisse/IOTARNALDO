@@ -1,0 +1,178 @@
+[
+    {
+        "id": "1b81fdf7da64bcf5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0800041948983df1",
+        "type": "http request",
+        "z": "1b81fdf7da64bcf5",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=ae10626011dbb050cfebc1ffa52f7829",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "1844aa895f4e29dc"
+            ]
+        ]
+    },
+    {
+        "id": "351c05722e2c8ec9",
+        "type": "inject",
+        "z": "1b81fdf7da64bcf5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Olá Mundooo",
+        "payloadType": "str",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "0800041948983df1",
+                "eaeccbbdf101219f"
+            ]
+        ]
+    },
+    {
+        "id": "572976c2a20833bd",
+        "type": "debug",
+        "z": "1b81fdf7da64bcf5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1844aa895f4e29dc",
+        "type": "json",
+        "z": "1b81fdf7da64bcf5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 160,
+        "wires": [
+            [
+                "572976c2a20833bd"
+            ]
+        ]
+    },
+    {
+        "id": "eaeccbbdf101219f",
+        "type": "mqtt out",
+        "z": "1b81fdf7da64bcf5",
+        "name": "",
+        "topic": "Atilabrabo",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "44032c65f91841d4",
+        "x": 420,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "056c8730706c88ec",
+        "type": "mqtt in",
+        "z": "1b81fdf7da64bcf5",
+        "name": "",
+        "topic": "arnalderas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "44032c65f91841d4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "eea7356619ddd93e"
+            ]
+        ]
+    },
+    {
+        "id": "eea7356619ddd93e",
+        "type": "debug",
+        "z": "1b81fdf7da64bcf5",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "44032c65f91841d4",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
